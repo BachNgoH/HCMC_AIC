@@ -9,10 +9,14 @@ run the following commands
 ```console
 cd aichallenge_frontend
 docker-compose up
+```
 
-cd ../
+open a new terminal and run the following commands
+```console
 cd SenmaticSearchCLIP
 docker build --tag python-docker .
 docker run -p 5000:5000 python-docker
 
 ```
+
+All the keyframes from the HCMC_AIChallenge2022 organizer have to be downloaded and put into a folder called "KeyFramesC00_V00" for this to work properly.
