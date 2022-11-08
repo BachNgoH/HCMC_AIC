@@ -26,7 +26,8 @@ ftfy==5.8
 regex==2020.11.13
 tqdm==4.56.0
 pandas==1.2.0
-fastparquet==0.5.0
+#fastparquet==0.5.0
 pyarrow==2.0.0
-faiss_cpu
+flask
+flask-cors
 sentence_transformers
