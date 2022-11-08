@@ -1,0 +1,46 @@
+.container {
+    position: absolute;
+    bottom: 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.submitBtn{
+    text-decoration: none;
+    background-color: lightblue;
+    margin: 1rem 2.5rem;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.submitBtn:hover {
+    background-color: lightgreen;
+}
+
+.addKNNBtn{
+    text-decoration: none;
+    background-color: lightgreen;
+    margin: 0 2.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.addKNNBtn:hover {
+    background-color: lightblue;
+}
+
+
+.clearBtn {
+    margin: 0 2.5rem;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: #dd4c69;
+    color: white;
+}
+
+.clearBtn:hover {
+    background-color: crimson;
+}

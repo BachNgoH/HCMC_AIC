@@ -1,0 +1,36 @@
+.container {
+    height: 70%;
+    overflow: auto;
+}
+
+.frameContainer {
+    margin: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    border: 5px solid green;
+    border-radius: 14px;
+    background-color: black;
+    position: relative;
+}
+
+.frameContainer:hover {
+    border: 5px solid lightgreen;
+    
+}
+
+.image {
+    height: 6rem;
+    /* margin: 0 ;  */
+}
+
+.btn {
+    position: absolute;
+    margin-right: -8rem;
+    width: 2.5rem;
+    margin-top: 0.25rem;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    background-color: lightcoral;
+}

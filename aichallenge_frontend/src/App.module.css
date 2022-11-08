@@ -1,0 +1,33 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.search_space {
+    width: 30%;
+    height: 100%;
+}
+
+.result_space {
+    width: 55%;
+    height: 100%;
+    overflow: auto;
+    background-color: #2b2727;
+}
+
+.submission_space {
+    width: 15%;
+}
+
+.submission_space h3 {
+    text-align: center;
+}
+
+.logo {
+    width: 100%;
+    font-family: 'Silkscreen', cursive;
+    font-size: 3rem;
+    text-align: center;
+}

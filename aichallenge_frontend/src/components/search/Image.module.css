@@ -1,0 +1,51 @@
+.container {
+    width: fit-content;
+    margin: 0;
+    position: relative;
+}
+
+.image {
+    height: 6rem;
+    border: solid 5px black;
+
+}
+
+.image:hover {
+    border: solid 5px green;
+}
+
+.btns {
+    position: absolute;
+    z-index: 100;
+}
+
+.btn {
+    width: 3rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    background-color: rgba(204, 204, 204, 0.841);
+    border-radius: 5px;
+    margin: 0.25rem 0;
+    z-index: 30;
+}
+
+.btn:hover{
+    background-color: lightgreen;
+} 
+
+.details {
+    position:absolute;
+    margin-top: 4rem;
+    margin-left: -4.25rem;
+
+    width: 4rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    background-color: rgba(204, 204, 204, 0.841);
+    border-radius: 5px;
+}
+
+.details:hover {
+    background-color: lightgreen;
+ 
+}

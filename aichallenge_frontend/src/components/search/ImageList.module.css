@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border-radius: 14px;
+    background-color: lightblue;
+}
