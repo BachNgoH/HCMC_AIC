@@ -6,7 +6,7 @@ git clone the project
 
 run the following commands
 
-'''console
+```console
 cd aichallenge_frontend
 docker-compose up
 
@@ -15,4 +15,4 @@ cd SenmaticSearchCLIP
 docker build --tag python-docker .
 docker run -p 5000:5000 python-docker
 
-'''
+```
