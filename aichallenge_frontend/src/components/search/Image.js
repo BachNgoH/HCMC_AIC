@@ -62,7 +62,7 @@ const Image = ({
             )}
             <img
                 className={classes.image}
-                src={`KeyFramesC00_V00/${video_id}/${frame_id}.jpg`}
+                src={`http://localhost:5000/data?video=${video_id}&frame=${frame_id}.jpg`}
                 alt="frame"
             />
 

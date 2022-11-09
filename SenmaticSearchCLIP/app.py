@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file, send_from_directory
 import numpy as np
 import pandas as pd
 import clip
@@ -6,10 +6,12 @@ import torch
 from flask_cors import CORS
 import csv
 from PIL import Image
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import SentenceTransformer
+import os
 
-UPLOAD_FOLDER = "./tmp"
+UPLOAD_FOLDER = "./static/data"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+DIR_NAME = os.path.dirname(__file__)
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load("ViT-B/32", device=device)
@@ -79,19 +81,22 @@ def search_photo():
         photo_features = np.load("./features.npy")
         photo_ids = pd.read_csv("./photo_ids.csv")
         photo_ids = list(photo_ids['photo_id'])
-        print("successfull")
-        print(request.files)
+        
+        # print("successfull")
+        # print(request.files)
+
         if 'file' not in request.files:
             print('No file part')
             return
         file = request.files['file']
-        print("on here")
+        
+        # print("on here")
         if file.filename == '':
-            print('No selected file')
+            # print('No selected file')
             return 
-        print("on here")
+        # print("on here")
         if file and allowed_file(file.filename):
-            print("file get successfull")
+            # print("file get successfull")
             image = Image.open(file)            
 
             image_input = preprocess(image).unsqueeze(0).to(device)
@@ -118,21 +123,15 @@ def search_photo():
 
             return jsonify({'data': results})
            
+@app.route('/data')
+def get_photos():
+    video_id = request.args.get("video")
+    frame_id = request.args.get("frame")
+    keyframe_folder = f"KeyFramesC0{video_id[2]}_V0{video_id[-3]}"
+    print(video_id[-3])
+    keyframe_path = os.path.join(DIR_NAME, "static", "data", keyframe_folder, video_id, frame_id)
 
-    # photo_idx = photo_ids.index(photo_id)
-
-    # photo_feat = photo_features[photo_idx]
-
-    # similarities = list(photo_feat @ photo_features.T)
-    # best_photos = sorted(zip(similarities, range(photo_features.shape[0])), key=lambda x: x[0], reverse=True)
-
-    # results = []
-    # for i in range(100):
-    #     idx = best_photos[i][1]
-    #     photo_id = photo_ids[idx]
-    #     results.append(photo_id)
-    # results = list(dict.fromkeys(results))
-    # return jsonify({'data': results})
+    return send_file(keyframe_path)
 
 @app.route('/video/<string:photo_id>')
 def get_frame_video(photo_id):

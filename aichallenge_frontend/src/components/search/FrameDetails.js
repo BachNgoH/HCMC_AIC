@@ -39,7 +39,7 @@ const FrameDetails = ({ video_id, setVidID, sendKNNreq, onClose }) => {
                 <>
                     <div className={classes.imageSection}>
                         <img
-                            src={`KeyFramesC00_V00/${video}/${frame}.jpg`}
+                            src={`http://localhost:5000/data?video=${video}&frame=${frame}.jpg`}
                         />
                         {data && <a href={data['watch_url']} target="_blank">Youtube Link</a>}
                     </div>
