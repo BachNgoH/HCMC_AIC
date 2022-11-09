@@ -3,6 +3,7 @@ import NextPageContext from "../store/nextpageCtx";
 import classes from "./TextQueryForm.module.css";
 
 function TextQueryForm({ setDataList }) {
+    const [viQuery, setViQuery] = useState("");
     const [query, setQuery] = useState("");
     const [ocrQuery, setOCRQuery] = useState("");
 
@@ -29,8 +30,19 @@ function TextQueryForm({ setDataList }) {
 
     const submitOCRHandler = async (e) => {
         e.preventDefault();
-        console.log(ocrQuery);
+        //console.log(ocrQuery);
         await fetch_image(`ocr?q=${ocrQuery}`)
+    };
+
+    const submitTranslateHandler = async (e) => {
+        e.preventDefault()
+        const response = await fetch(
+            `http://localhost:5000/translate?text=${viQuery}`
+        );
+        if (response.ok) {
+            const data = await response.json();
+            setQuery(data["translatedText"]);
+        }
     }
 
     const changeHandler = (event) => {
@@ -63,14 +75,28 @@ function TextQueryForm({ setDataList }) {
     };
 
     return (
-        <>
+        <div className={classes.container}>
+            <form onSubmit={submitTranslateHandler} className={classes.form}>
+                <label>Vietnamese Query</label>
+                <textarea
+                    className={classes.input}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Type your query here ..."
+                    onChange={(e) => setViQuery(e.target.value)}
+                    value={viQuery}
+                />
+
+                <button className={classes.scoreBtn}>Translate</button>
+            </form>
+
             <form onSubmit={submitHandler} className={classes.form}>
-                <label>Text Query</label>
+                <label>English Query</label>
                 <textarea
                     className={classes.input}
                     onKeyDown={handleKeyDown}
                     placeholder="Type your query here ..."
                     onChange={(e) => setQuery(e.target.value)}
+                    value={query}
                 />
 
                 <button className={classes.scoreBtn}>Score</button>
@@ -104,7 +130,7 @@ function TextQueryForm({ setDataList }) {
 
                 <button className={classes.scoreBtn}>Score</button>
             </form>
-        </>
+        </div>
     );
 }
 

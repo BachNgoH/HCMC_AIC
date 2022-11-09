@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file, send_from_directory
+from flask import Flask, jsonify, request, send_file
 import numpy as np
 import pandas as pd
 import clip
@@ -8,6 +8,7 @@ import csv
 from PIL import Image
 from sentence_transformers import SentenceTransformer
 import os
+from translate import translate
 
 UPLOAD_FOLDER = "./static/data"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
@@ -176,6 +177,12 @@ def get_frame_video(photo_id):
 
 #     results = [keys[idx][:-4] for idx in I]
 #     return jsonify({"data": results})    
+
+@app.route("/translate")
+def get_translation():
+    text = request.args.get("text")
+    result = translate(text)
+    return jsonify({"translatedText": result})
 
 @app.route("/submission", methods = ['POST'])
 def get_submission():
