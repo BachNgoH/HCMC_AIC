@@ -21,6 +21,10 @@
     
 }
 
+.scoreBtn:hover {
+    background-color: lightgreen;
+}
+
 .fileinput {
     display: flex;
     width: 50%;

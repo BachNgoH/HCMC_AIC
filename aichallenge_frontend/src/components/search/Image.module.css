@@ -4,14 +4,19 @@
     position: relative;
 }
 
-.image {
+.imageContainer {
     height: 6rem;
-    border: solid 5px black;
+    width: 11rem;
+    border: solid 1px black;
 
 }
 
-.image:hover {
-    border: solid 5px green;
+.imageContainer:hover {
+    border: solid 1px green;
+}
+
+.image{
+    height: 6rem;
 }
 
 .btns {

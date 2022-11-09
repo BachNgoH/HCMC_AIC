@@ -25,7 +25,7 @@ const Frame = (props) => {
                 >
                     <img
                         className={classes.image}
-                        src={`KeyFramesC00_V00/${props.frame.videoId}/${props.frame.frameId}.jpg`}
+                        src={`http://localhost:5000/data?video=${props.frame.videoId}&frame=${props.frame.frameId}.jpg`}
                     />
                     {isHovering && (
                         <button className={classes.btn} onClick={handleRemove}>

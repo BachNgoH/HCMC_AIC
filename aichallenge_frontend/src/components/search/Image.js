@@ -75,11 +75,13 @@ const Image = ({
                     </button>
                 </div>
             )}
+            <div className={classes.imageContainer}>
             <img
                 className={classes.image}
                 src={`http://localhost:5000/data?video=${video_id}&frame=${frame_id}.jpg`}
                 alt="frame"
-            />
+                />
+            </div>
             {isHovering && <div className={classes.details}>
                 {`${video_id}\\${frame_id}`}
             </div>}

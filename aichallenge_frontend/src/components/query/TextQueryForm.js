@@ -75,6 +75,8 @@ function TextQueryForm({ setDataList }) {
 
                 <button className={classes.scoreBtn}>Score</button>
             </form>
+
+            <hr></hr>
             <form className={classes.form}>
                 <input
                     type="file"
@@ -88,6 +90,9 @@ function TextQueryForm({ setDataList }) {
                     Score
                 </button>
             </form>
+            
+            <hr></hr>
+
             <form onSubmit={submitOCRHandler} className={classes.form}>
                 <label>OCR Query</label>
                 <textarea
