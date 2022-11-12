@@ -4,14 +4,19 @@
     position: relative;
 }
 
-.image {
-    height: 6rem;
-    border: solid 5px black;
+.imageContainer {
+    height: 8rem;
+    width: 8rem;
+    border: solid 1px black;
 
 }
 
-.image:hover {
-    border: solid 5px green;
+.imageContainer:hover {
+    border: solid 1px green;
+}
+
+.image{
+    height: 8rem;
 }
 
 .btns {
@@ -20,12 +25,12 @@
 }
 
 .btn {
-    width: 3rem;
+    width: fit-content;
     height: 1.5rem;
     font-size: 1rem;
     background-color: rgba(204, 204, 204, 0.841);
     border-radius: 5px;
-    margin: 0.25rem 0;
+    margin: 0.25rem;
     z-index: 30;
 }
 
@@ -35,17 +40,16 @@
 
 .details {
     position:absolute;
-    margin-top: 4rem;
-    margin-left: -4.25rem;
+    margin-top: -2rem;
+    margin-left: 0.5rem;
 
-    width: 4rem;
     height: 1.5rem;
     font-size: 1rem;
     background-color: rgba(204, 204, 204, 0.841);
     border-radius: 5px;
 }
 
-.details:hover {
+/* .details:hover {
     background-color: lightgreen;
  
-}
+} */

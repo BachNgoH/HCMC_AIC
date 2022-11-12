@@ -6,13 +6,13 @@
 }
 
 .imageSection {
-    width: 60%;
+    width: 38%;
     display: flex;
     flex-direction: column;
 }
 
 .frameList {
-    width: 40%;
+    width: 62%;
     height: 100%;
     overflow: auto;
     display: flex;

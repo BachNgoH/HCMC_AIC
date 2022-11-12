@@ -16,7 +16,7 @@ const Image = ({
 }) => {
     const [isHovering, setIsHovering] = useState(false);
     const submissionCtx = useContext(SubmissionContext);
-    const nextpageCtx = useContext(NextPageContext)
+    const nextpageCtx = useContext(NextPageContext);
 
     const imageRef = useRef();
     useEffect(() => {
@@ -31,7 +31,7 @@ const Image = ({
     }, [isChosen]);
 
     const handleSubmission = () => {
-        submissionCtx.submitFrame(video_id, frame_id)
+        submissionCtx.submitFrame(video_id, frame_id);
     };
 
     return (
@@ -48,36 +48,43 @@ const Image = ({
                         <button
                             className={classes.btn}
                             onClick={() => {
-                                sendKNNreq(video_id, frame_id, nextpageCtx.page);
+                                sendKNNreq(
+                                    video_id,
+                                    frame_id,
+                                    nextpageCtx.page
+                                );
                                 setClose();
                             }}
                         >
                             KNN
                         </button>
                     )}
+
+                    <button
+                        className={classes.btn}
+                        onClick={() => {
+                            setOpen(true);
+                            setVidID(`${video_id}-${frame_id}`);
+                        }}
+                        onMouseOver={() => setIsHovering(true)}
+                    >
+                        Details
+                    </button>
                     <button className={classes.btn} onClick={handleSubmission}>
                         <FontAwesomeIcon icon={faCheck} />
                     </button>
                 </div>
             )}
+            <div className={classes.imageContainer}>
             <img
                 className={classes.image}
-                src={`KeyFramesC00_V00/${video_id}/${frame_id}.jpg`}
+                src={`http://localhost:5000/data?video=${video_id}&frame=${frame_id}.jpg`}
                 alt="frame"
-            />
-
-            {isHovering && (
-                <button
-                    className={classes.details}
-                    onClick={() => {
-                        setOpen(true);
-                        setVidID(`${video_id}-${frame_id}`);
-                    }}
-                    onMouseOver={() => setIsHovering(true)}
-                >
-                    Details
-                </button>
-            )}
+                />
+            </div>
+            {isHovering && <div className={classes.details}>
+                {`${video_id}\\${frame_id}`}
+            </div>}
         </div>
     );
 };

@@ -57,11 +57,11 @@ function ImageList({
     return (
         <div className={classes.container}>
             {images}
-            {(nextpageCtx.query !== "" || nextpageCtx.photoId !== "") && (
+            {/* {(nextpageCtx.query !== "" || nextpageCtx.photoId !== "") && (
                 <button className={classes.btn} onClick={onMoreImage}>
                     More Image
                 </button>
-            )}
+            )} */}
         </div>
     );
 }
