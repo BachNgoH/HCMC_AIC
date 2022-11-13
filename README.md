@@ -25,4 +25,5 @@ All the keyframes from the HCMC_AIChallenge2022 organizer have to be downloaded 
 # HCMC_AIC
 
 - download file:  [link drive](https://drive.google.com/drive/folders/1EceXvjvZdg3Qhm-1ihkJ1GvjldcKkEjb?usp=sharing)
+- download file ocr (test): [link](https://drive.google.com/file/d/1bNsmMk4rHquiinjQiMbNAvpVb7_q2W2s/view?usp=sharing)
 >>>>>>> origin/master
