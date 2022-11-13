@@ -31,3 +31,4 @@ pyarrow==2.0.0
 flask
 flask-cors
 sentence_transformers
+rapidfuzz
